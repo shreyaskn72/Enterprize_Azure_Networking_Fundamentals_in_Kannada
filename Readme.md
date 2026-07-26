@@ -1,41 +1,74 @@
 # Azure Networking Handbook
-### Networking Fundamentals ಇಂದ Production-Ready Azure Architecture ವರೆಗು
 
-> ಇದು Azure Networking ನ ಒಂದು practical handbook — zero ಇಂದ ಕಲಿತುಕೊಳ್ಳೋದಕ್ಕೆ.
-> ಈ guide networking fundamentals ಇಂದ start ಆಗಿ, gradually enterprise-grade Azure network architectures design ಮಾಡೋ ಕಡೆಗೆ progress ಆಗುತ್ತೆ.
+### Networking Fundamentals ಇಂದ Production-Ready Azure Architecture ವರೆಗೆ
+
+> Azure Networking ಅನ್ನು **zero ಇಂದ practical ಆಗಿ** ಕಲಿಯಬೇಕಾ? ಹಾಗಿದ್ರೆ ಈ handbook ನಿಮಗಾಗಿ.
+>
+> ನಾವು ಮೊದಲು networking basics ಇಂದ ಶುರು ಮಾಡಿ, step-by-step ಆಗಿ **enterprise-level Azure network architectures** ಹೇಗೆ design ಮಾಡಬೇಕು ಅನ್ನೋದನ್ನ ಕಲಿಯೋಣ.
 
 ---
 
 ## 📖 ಈ Handbook ಬಗ್ಗೆ
 
-ನಮ್ಮ end goal **Azure VM + AKS** ಆಗಿರೋದ್ರಿಂದ, ಇದನ್ನ CCNA networking course ತರ ಮಾಡ್ಬೇಕು ಅಂತ ಇಲ್ಲ. ಇದನ್ನ **"Cloud Engineers ಗಾಗಿ Networking"** ಅಂತ think ಮಾಡಿ.
+ಈ handbook ನ ಮುಖ್ಯ goal **Azure VM ಮತ್ತು AKS networking** ಅರ್ಥ ಮಾಡಿಸೋದು.
 
-ನನ್ನ goal:
+ಇದು **CCNA ತರ full networking course ಅಲ್ಲ.**
 
-* ಪ್ರತಿ concept **ಯಾಕೆ ಇದೆ** ಅಂತ explain ಮಾಡೋದು.
-* ಬೇಡದ theory avoid ಮಾಡೋದು.
-* Real-world analogies use ಮಾಡೋದು.
-* Practical ಆಗಿ ಇಟ್ಟುಕೊಳ್ಳೋದು.
-* Memorization ಬದಲು intuition build ಮಾಡೋದು.
+ಇದನ್ನ **"Cloud Engineers ಗೆ ಬೇಕಾಗಿರುವ Networking"** ಅಂತ ಯೋಚಿಸಿ.
+
+ಈ handbook ನಲ್ಲಿ ನಾನು focus ಮಾಡೋದು:
+
+* ಪ್ರತಿ concept **ಯಾಕೆ ಬೇಕು** ಅನ್ನೋದನ್ನ explain ಮಾಡೋದು.
+* ಬೇಕಿಲ್ಲದ theory ನಲ್ಲಿ time waste ಮಾಡಿಸದೇ ಇರೋದು.
+* Real-world examples ಮತ್ತು analogies ಜೊತೆ explain ಮಾಡೋದು.
+* ಸಾಧ್ಯವಾದಷ್ಟು practical ಆಗಿ ಕಲಿಸೋದು.
+* ಕೇವಲ ನೆನಪಿಟ್ಟುಕೊಳ್ಳೋದು ಅಲ್ಲ, concept ಅರ್ಥ ಆಗೋ ಹಾಗೆ explain ಮಾಡೋದು.
 
 ---
 
-ಬಹಳ Azure networking resources ನಿಮಗೆ already computer networking ಗೊತ್ತು ಅಂತ assume ಮಾಡ್ತಾವೆ.
+ಬಹುತೇಕ Azure Networking tutorials ಮತ್ತು courses, ನಿಮಗೆ **computer networking already ಗೊತ್ತು** ಅಂತ assume ಮಾಡ್ತವೆ.
 
-ಈ handbook ಇದಕ್ಕೆ different approach ತಗೊಳ್ಳುತ್ತೆ.
+ಆದ್ರೆ ಈ handbook ನಲ್ಲಿ ನಾವು **ಅಲ್ಲಿಂದ start ಮಾಡಲ್ಲ.**
 
-ಇದು **computers ಹೇಗೆ communicate ಮಾಡುತ್ತೆ** ಅಂತ explain ಮಾಡೋದ್ರಿಂದ start ಆಗಿ, ಆ ಮೇಲೆ IP addressing, routing, DNS, NAT, firewalls ತರ networking fundamentals introduce ಮಾಡುತ್ತೆ — ಆ ಮೇಲೆ Virtual Networks, Subnets, VNet Peering, Private Link, Private Endpoints, Routing, Network Security, Hybrid Connectivity, ಮತ್ತು enterprise network design ತರ Azure networking concepts ಕಡೆ move ಆಗುತ್ತೆ.
+ಮೊದಲು **computers ಒಂದಕ್ಕೊಂದು ಹೇಗೆ communicate ಮಾಡುತ್ತವೆ** ಅನ್ನೋದನ್ನ ಅರ್ಥ ಮಾಡ್ಕೊಳ್ತೀವಿ.
 
-ಪ್ರತಿ topic ಈ ವಿಷಯಗಳಿಂದ explain ಮಾಡಲಾಗುತ್ತೆ:
+ಆಮೇಲೆ step-by-step ಆಗಿ:
 
-- Simple language
-- Real-world examples
-- Visual diagrams
-- Architecture thinking
-- Production best practices
-- Hands-on labs
+* IP Addressing
+* Routing
+* DNS
+* NAT
+* Firewalls
 
-ಇದರ goal ಕೇವಲ **Azure networking ಹೇಗೆ work ಆಗುತ್ತೆ** ಅಂತ ಕಲಿತುಕೊಳ್ಳೋದಲ್ಲ, ಜೊತೆಗೆ **enterprise cloud architects ಯಾಕೆ ಆ ರೀತಿ design ಮಾಡ್ತಾರೆ** ಅಂತ ಅರಿಯೋ ಹಾಗೆ ಕೂಡ.
+ಈ networking fundamentals cover ಮಾಡಿ, ನಂತರ Azure Networking topics ಗೆ move ಆಗ್ತೀವಿ.
+
+ಅದಾದ್ಮೇಲೆ:
+
+* Virtual Networks
+* Subnets
+* VNet Peering
+* Private Link
+* Private Endpoints
+* Routing
+* Network Security
+* Hybrid Connectivity
+* Enterprise Network Design
+
+ಹೀಗೆ ಒಂದೊಂದೇ concept build ಮಾಡ್ಕೊಂಡು ಮುಂದೆ ಹೋಗ್ತೀವಿ.
+
+ಪ್ರತಿ topic ನಲ್ಲಿ ನಾವು ನೋಡೋದು:
+
+* Simple explanation
+* Real-world examples
+* Visual diagrams
+* Architecture thinking
+* Production best practices
+* Hands-on labs
+
+ಈ handbook ನ goal ಕೇವಲ **Azure Networking ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತೆ** ಅನ್ನೋದನ್ನ ಕಲಿಸೋದಲ್ಲ.
+
+ಅದರ ಜೊತೆಗೆ **real-world ನಲ್ಲಿ Cloud Architects ಯಾಕೆ ಈ ರೀತಿಯ architecture design ಮಾಡ್ತಾರೆ** ಅನ್ನೋದನ್ನೂ ಅರ್ಥ ಮಾಡಿಸೋದು.
+
 
 ---
 
@@ -43,14 +76,14 @@
 
 ಈ handbook ಈ ಜನ ಗಾಗಿ design ಮಾಡಲಾಗಿದೆ:
 
-- Cloud networking ಕಲಿತುಕೊಳ್ಳೋ beginners
+- Cloud networking beginners
 - Azure Administrators
 - Cloud Engineers
 - DevOps Engineers
 - Platform Engineers
 - Azure Solution Architects
 - Azure certifications ಗಾಗಿ prepare ಆಗುತ್ತಿರೋ students
-- Production Azure networking ಅರ್ಥ ಮಾಡ್ಕೊಳ್ಳೋ ಆಸಕ್ತಿ ಇರೋವರು ಯಾರೇ ಆಗಿರಲಿ
+- Production Azure networking enthusiassts
 
 ---
 
@@ -103,7 +136,6 @@
 
 * Stateful vs Stateless
 * Allow/Deny rules
-
 
 
 ---
@@ -367,14 +399,17 @@ Azure SQL / Storage
 8. **Hybrid Networking** (2 days)
 9. **Architecture Labs** (3–5 days)
 
-ಈ path, basic networking concepts ಇಂದ start ಆಗಿ secure Azure VMs ಮತ್ತು production-ready AKS clusters confidently deploy ಮಾಡೋ ತನಕ ಕರ್ಕೊಂಡು ಹೋಗುತ್ತೆ.
+ಈ learning path follow ಮಾಡಿದ್ರೆ, **networking basics ಇಂದ ಶುರು ಮಾಡಿ**, step-by-step ಆಗಿ **secure Azure VMs** ಮತ್ತು **production-ready AKS clusters** confidently deploy ಮಾಡೋ ಮಟ್ಟಕ್ಕೆ ಬರ್ತೀರ.
 
-ನಿಮ್ಮ end goal **cloud-native architect ಅಥವಾ DevOps engineer** ಆಗ್ಬೇಕು ಅಂತ ಇದ್ರೆ, networking ಮುಗಿದ ಮೇಲೆ ಈ ಎರಡು follow-up modules add ಮಾಡಿ:
+ಒಂದು ವೇಳೆ ನಿಮ್ಮ goal **Cloud-Native Architect** ಅಥವಾ **DevOps Engineer** ಆಗೋದು ಅಂದ್ರೆ, networking complete ಆದ್ಮೇಲೆ ಈ ಎರಡು modules ಕೂಡ continue ಮಾಡಿ:
 
-* **Module 9: Azure Storage & Identity** (Managed Identity, Key Vault, Storage Accounts, Azure Files, Disks)
-* **Module 10: AKS Production Architecture** (node pools, autoscaling, ingress, observability, disaster recovery, cost optimization, ಮತ್ತು security best practices)
+* **Module 9: Azure Storage & Identity**
+  (Managed Identity, Key Vault, Storage Accounts, Azure Files, Disks)
 
-ಇವು networking knowledge ಗೆ complement ಆಗಿ, real-world Azure deployments ನಲ್ಲಿ frequently encounter ಆಗುವ topics cover ಮಾಡುತ್ತೆ.
+* **Module 10: AKS Production Architecture**
+  (Node Pools, Autoscaling, Ingress, Observability, Disaster Recovery, Cost Optimization, ಮತ್ತು Security Best Practices)
+
+ಈ ಎರಡು modules, networking ನಲ್ಲಿ ಕಲಿತ concepts ಅನ್ನು real-world Azure environments ನಲ್ಲಿ ಹೇಗೆ use ಮಾಡ್ತಾರೆ ಅನ್ನೋದನ್ನ ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳೋಕೆ help ಮಾಡುತ್ತೆ.
 
 
 # 🏗️ Learning Philosophy
@@ -409,15 +444,16 @@ Enterprise Architecture
 
 # 🎯 Goal
 
-ಈ handbook ಮುಗಿದ ಮೇಲೆ ನಿಮಗೆ ಇದು ಸಾಧ್ಯ ಆಗುತ್ತೆ:
+ಈ handbook complete ಮಾಡಿದ್ಮೇಲೆ, ನೀವು confidently:
 
-- Azure Virtual Networks design ಮಾಡೋಕೆ
-- IP Address Spaces plan ಮಾಡೋಕೆ
-- Production-ready network architectures build ಮಾಡೋಕೆ
-- Azure resources secure ಮಾಡೋಕೆ
-- VNets ಮತ್ತು on-premises networks connect ಮಾಡೋಕೆ
-- Enterprise Azure networking patterns ಅರ್ಥ ಮಾಡ್ಕೊಳ್ಳೋಕೆ
-- ಕೇವಲ Azure resources deploy ಮಾಡೋ ಬಗ್ಗೆ ಅಲ್ಲ, ಒಂದು Cloud Architect ತರ think ಮಾಡೋಕೆ
+* Azure Virtual Networks design ಮಾಡಬಹುದು.
+* IP Address Spaces plan ಮಾಡಬಹುದು.
+* Secure ಮತ್ತು production-ready network architectures build ಮಾಡಬಹುದು.
+* Azure resources ಅನ್ನು secure ಮಾಡಬಹುದು.
+* VNets ಮತ್ತು on-premises networks connect ಮಾಡಬಹುದು.
+* Enterprise Azure networking patterns ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳಬಹುದು.
+* ಮತ್ತು ಮುಖ್ಯವಾಗಿ... **Azure resources deploy ಮಾಡೋದು ಮಾತ್ರ ಅಲ್ಲ, ಒಬ್ಬ Cloud Architect ತರ ಯೋಚಿಸೋದು ಕಲಿಯಬಹುದು.**
+
 
 ---
 
@@ -445,6 +481,10 @@ Azure-Networking-Handbook/
 
 # ⭐ Guiding Principle
 
-> **"ಕೇವಲ Azure Networking ಕಲಿಯಬೇಡಿ. Enterprise cloud architects networks ಯಾಕೆ ಆ ರೀತಿ design ಮಾಡ್ತಾರೆ ಅಂತ ಕಲಿತುಕೊಳ್ಳಿ."**
+> **"ಕೇವಲ Azure Networking ಕಲಿಯಬೇಡಿ. Enterprise Cloud Architects ಯಾಕೆ ಈ ರೀತಿ networks design ಮಾಡ್ತಾರೆ ಅನ್ನೋದನ್ನೂ ಕಲಿಯಿರಿ."**
 
-ಈ handbook, Azure networking concepts ಅರ್ಥ ಮಾಡ್ಕೊಳ್ಳೋದು ಮತ್ತು ಅದನ್ನ real-world, production-grade cloud architectures ಗೆ apply ಮಾಡೋದರ ನಡುವೆ ಇರೋ gap ನ bridge ಮಾಡೋಕೆ design ಮಾಡಲಾಗಿದೆ.
+ಈ handbook ನ ಉದ್ದೇಶ ಕೇವಲ Azure Networking concepts explain ಮಾಡೋದಲ್ಲ.
+
+ಒಂದು concept **ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತೆ** ಅನ್ನೋದರ ಜೊತೆಗೆ, **ಯಾಕೆ ಬಳಸುತ್ತಾರೆ**, **ಯಾವಾಗ ಬಳಸಬೇಕು**, ಮತ್ತು **real-world production environments ನಲ್ಲಿ ಅದನ್ನ ಹೇಗೆ apply ಮಾಡುತ್ತಾರೆ** ಅನ್ನೋದನ್ನೂ ಅರ್ಥ ಮಾಡಿಸೋದು.
+
+ಕೊನೆಗೆ, Azure resources deploy ಮಾಡೋದು ಮಾತ್ರ ಅಲ್ಲ... **ಒಬ್ಬ Cloud Architect ತರ ಯೋಚಿಸೋದು** ಈ handbook ನ ನಿಜವಾದ goal.
