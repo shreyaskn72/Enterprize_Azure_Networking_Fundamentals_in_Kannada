@@ -104,7 +104,7 @@
 * Stateful vs Stateless
 * Allow/Deny rules
 
-[Module 0 — Cloud Networking Fundamentals](./handbook/Part-00-Cloud-Networking-Fundamentals.md)
+
 
 ---
 
