@@ -137,6 +137,7 @@
 * Stateful vs Stateless
 * Allow/Deny rules
 
+[moudle 0 materials](module_0)
 
 ---
 
@@ -164,7 +165,7 @@ Lab
 * ಎರಡು subnets create ಮಾಡಿ
 * VM attach ಮಾಡಿ
 
-[moudle 0](module_0)
+
 ---
 
 # Module 2 — Virtual Networks Deep Dive
