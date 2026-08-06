@@ -137,7 +137,9 @@
 * Stateful vs Stateless
 * Allow/Deny rules
 
-[moudle 0 materials](module_0)
+[moudle 0 notes](module_0/Readme.md)
+
+[module 0 story based learning](module_0/1.0_story_explanation.md)
 
 ---
 
